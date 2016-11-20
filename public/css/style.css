@@ -1,0 +1,237 @@
+body {
+	font: 400 12px/1.4 Arial,"Helvetica Neue",Helvetica,sans-serif;
+	position: relative;
+	margin: 0 auto;
+}
+
+
+a:link, a:visited, a:active {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	color: red;
+}
+
+.header {
+	height: 90px;
+	width: 900px;
+	margin: 0 auto;
+}
+
+#logotype {
+	width: 172px;
+	float: left;
+}
+
+.googleAd {
+	width: 728px;
+	float: right;
+}
+
+.mainContent {
+	margin: 0 auto;
+	padding-top: 50px;
+	width: 900px;
+}
+
+#menu {
+	float: left;
+	position: fixed;
+	width: 172px;
+}
+
+#listing {
+	float: right;
+	width: 728px;
+	text-align: right;
+}
+
+li:hover {
+	background: #e0e0e0;
+}
+
+.adName {
+	float: left;
+	text-align: left;
+	width: 500px;
+}
+
+.adNameThumb {
+	float: left;
+	text-align: left;
+	width: 500px;
+	color: red;
+	padding-left: 15px;
+	background-image: url("../img/zoom.png");
+	background-repeat: no-repeat; 
+}
+
+.adPrice {
+	color: #6c3f80;
+	font-weight: 700;
+	width: 114px;
+}
+
+.adDate {
+	float: right;
+	text-align: right;
+	width: 114px;
+}
+
+.hiddenImage {
+	display: none;
+	position: fixed;
+}
+
+#pagination {
+	clear: right;
+	height: 22px;
+	width: 900px;
+}
+
+#btnPrev {
+	float: left;
+	text-align: right;
+	width: 440px;
+}
+
+#btnNext {
+	float: right;
+	text-align: left;
+	width: 440px;
+}
+
+#footer {
+	height: 22px;
+	margin: 0 auto;
+	margin-top: 30px;
+	text-align: center;
+	width: 900px;
+	clear: right;
+}
+
+.sideTable {
+	width: 172px;
+}
+
+.adsListing {
+	width: 728px;
+}
+
+ul {
+	list-style-type: none;
+	padding-left: 0;
+}
+
+li a:hover {
+	background: #e0e0e0;
+}
+
+sup {
+	color: red;
+}
+
+
+/****************************/
+/****** newad style ********/
+/****************************/
+
+.addForm {
+	margin: 0 auto;
+	text-align: left;
+	width: 900px;
+}
+
+#adTitle {
+	font-size: x-large;
+}
+
+#submitButton {
+	text-align: center;
+}
+
+label.error {
+	color: red;
+}
+
+
+
+/****************************/
+/****** adposted style ********/
+/****************************/
+
+#adPosted {
+	width: 728px;
+	float: right;
+	text-align: left;
+}
+
+#newPostedAd :link {
+	color: red;
+}
+
+
+/****************************/
+/****** show ad style *****/
+/***************************/
+
+
+#adName {
+	font-size: xx-large;
+	text-align: left;
+}
+
+#date {
+	color: gray;
+	margin-top: 20px;
+	text-align: left;
+}
+
+#imgAndMsg {
+	width: 900px;
+}
+
+#ad-Message {
+	color: black;
+	font-size: 15px; 
+	float: left;
+	margin-top: 15px;
+	text-align: justify;
+	width: 700px;
+}
+
+#newFilePath {
+	float: right;
+	text-align: right;
+	width: 200px;
+}
+
+#price {
+	font-size: 18px;
+	margin-top: 180px;
+	text-align: left;
+}
+
+#phone {
+	font-size: 18px;
+	margin-top: 10px;
+	text-align: left;
+}
+
+hr {
+	height: 1px; 
+	border: none; 
+	color: #fff;
+	background-color: #c4c4c4; 
+	width: 90%; 
+	text-align: center; 
+	margin-top: 15px;
+}
+
+#usefulInfo {
+	background: #f7f7f7;
+	color: gray;
+	margin-top: 15px;
+}
