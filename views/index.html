@@ -1,124 +1,82 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Anunt Orhei</title>
-		<meta charset="UTF-8">
+  <head>
+    <title>YOUR SITE TITLE</title>
 
-		<meta name="description" content="Ai un anunţ pentru locuitorii oraşului Orhei? Plasează-l gratis pe site-ul noustru www.AnuntOrhei.md!" />
+    <meta charset="UTF-8">
+    <meta name="description" content="INSERT HERE YOUR SITE DESCRIPTION" />
+    <meta name="keyowrds" content="INSERT HERE YOUR SITE KEYWORDS" />
 
-		<meta name="keyowrds" content="casa, orhei, md, anunturi, gazda, chirie, vinzare, apartamente, auto, telefoane" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
 
-		<link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+    <!-- getting data from links.txt -->
+    <script src="js/request.js"></script>
+    <!-- jQuery -->
+    <script src="libs/jquery-1.11.1.min.js"></script>
+    <!-- ads count script -->
+    <script src="js/adsCount.js"></script>
+    <!-- category script -->
+    <script src="js/getAdsByCategory.js"></script>
+    <!-- pagination -->
+    <script src="js/pagination.js"></script>
+    <!-- show thumbnails -->
+    <script src="js/showThumb.js"></script>
+    <!-- Google Analytics -->
+    <script>
+      // put your Google Analytics code here
+    </script>
+  </head>
 
-		<!-- getting data from links.txt -->
-		<script src="js/request.js"></script>
+  <body>
+    <div class="header">
+      <div id="logotype">
+        <a href="/"><img src="img/logo.png" alt="YOUR SITE LOGO"></a>
+      </div>
 
-		<!-- jQuery -->
-		<script src="libs/jquery-1.11.1.min.js"></script>
+      <!-- google adSesnse -->
+      <div class="googleAd">
+        <!-- put your Google Adsense code here -->
+      </div>
+    </div>
 
-		<!-- ads count script -->
-		<script src="js/adsCount.js"></script>
+    <div class="mainContent">
+      <div id="menu">
+        <ul id="menuList">
+          <li><a href="/" id="allAds">Pagina principală</a></li>
+          <li><a href="javascript:getAdsByCategory('apartaments');" id="apartaments">Apartamente</a></li>
+          <li><a href="javascript:getAdsByCategory('houses');" id="houses">Case şi vile</a></li>
+          <li><a href="javascript:getAdsByCategory('lands');" id="lands">Terenuri</a></li>
+          <li><a href="javascript:getAdsByCategory('comercial');" id="comercial">Imobil comercial</a></li>
+          <li><a href="javascript:getAdsByCategory('garages');" id="garages">Garajuri</a></li>
+          <li><a href="javascript:getAdsByCategory('cars');" id="cars">Automobile</a></li>
+          <li><a href="javascript:getAdsByCategory('buses');" id="buses">Microbuze</a></li>
+          <li><a href="javascript:getAdsByCategory('phones');" id="phones">Telefoane</a></li>
+          <li><a href="javascript:getAdsByCategory('notebooks');" id="notebooks">Notebookuri</a></li>
+          <li><a href="javascript:getAdsByCategory('desktop');" id="desktop">Compiutere</a></li>
+          <li><a href="javascript:getAdsByCategory('repairs');" id="repairs">Construcţii şi reparaţii</a></li>
+          <li><a href="javascript:getAdsByCategory('services');" id="services">Servicii</a></li>
+          <li><a href="javascript:getAdsByCategory('other');" id="other">Altele</a></li>
+          <li><p></p></li>
+          <li><a href="/newad" style="color:red">Postează anunţ</a></li>
+        </ul>
+      </div>
 
-		<!-- category script -->
-		<script src="js/getAdsByCategory.js"></script>
+      <div id="listing">
+        <ul id="adsListing">
+        </ul>
+      </div>
 
-		<!-- pagination -->
-		<script src="js/pagination.js"></script>
+      <div id="pagination">
+        <div id="btnPrev">
+          <a href="javascript:prevPage()">Previous</a>
+        </div>
 
-		<!-- show thumbnails -->
-		<script src="js/showThumb.js"></script>
-		
-		<!-- Google Analytics -->
-		<script type="text/javascript">
-			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        <div id="btnNext">
+          <a href="javascript:nextPage()">Next</a>
+        </div>
+      </div>
+    </div>
 
-			ga('create', 'UA-15399295-10', 'anuntorhei.md');
-			ga('send', 'pageview');
-		</script>
-		
-		<!-- reformal script -->
-		<script type="text/javascript">
-		    var reformalOptions = {
-		        project_id: 804440,
-		        project_host: "anuntorhei.reformal.ru",
-		        tab_orientation: "right",
-		        tab_indent: "50%",
-		        tab_bg_color: "#F05A00",
-		        tab_border_color: "#FFFFFF",
-		        tab_image_url: "http://tab.reformal.ru/T9GC0LfRi9Cy0Ysg0Lgg0L%252FRgNC10LTQu9C%252B0LbQtdC90LjRjw==/FFFFFF/a08a7c60392f68cb33f77d4f56cf8c6f/right/1/tab.png",
-		        tab_border_width: 2
-		    };
-		    
-		    (function() {
-		        var script = document.createElement('script');
-		        script.type = 'text/javascript'; script.async = true;
-		        script.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'media.reformal.ru/widgets/v3/reformal.js';
-		        document.getElementsByTagName('head')[0].appendChild(script);
-		    })();
-		</script><noscript><a href="http://reformal.ru"><img src="http://media.reformal.ru/reformal.png" /></a><a href="http://anuntorhei.reformal.ru">Oтзывы и предложения для Anunt Orhei</a></noscript>
-	</head>
-
-	<body>
-		<div class="header">
-			<div id="logotype">
-				<a href="/"><img src="img/logo.png" alt="Logo Anunt Orhei"></a>
-			</div>
-
-			<!-- google adSesnse -->
-			<div class="googleAd">
-				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-				<!-- Anunt Orhei Header -->
-				<ins class="adsbygoogle"
-				     style="display:inline-block;width:728px;height:90px"
-				     data-ad-client="ca-pub-0029006930915581"
-				     data-ad-slot="6709178944"></ins>
-				<script>
-					(adsbygoogle = window.adsbygoogle || []).push({});
-				</script>
-			</div>
-		</div>
-
-		<div class="mainContent">
-		    <div id="menu">
-		    	<ul id="menuList">
-		    		<li><a href="/" id="allAds">Pagina principală</a></li>
-					<li><a href="javascript:getAdsByCategory('apartaments');" id="apartaments">Apartamente</a></li>
-					<li><a href="javascript:getAdsByCategory('houses');" id="houses">Case şi vile</a></li>
-					<li><a href="javascript:getAdsByCategory('lands');" id="lands">Terenuri</a></li>
-					<li><a href="javascript:getAdsByCategory('comercial');" id="comercial">Imobil comercial</a></li>
-					<li><a href="javascript:getAdsByCategory('garages');" id="garages">Garajuri</a></li>
-					<li><a href="javascript:getAdsByCategory('cars');" id="cars">Automobile</a></li>
-					<li><a href="javascript:getAdsByCategory('buses');" id="buses">Microbuze</a></li>
-					<li><a href="javascript:getAdsByCategory('phones');" id="phones">Telefoane</a></li>
-					<li><a href="javascript:getAdsByCategory('notebooks');" id="notebooks">Notebookuri</a></li>
-					<li><a href="javascript:getAdsByCategory('desktop');" id="desktop">Compiutere</a></li>
-					<li><a href="javascript:getAdsByCategory('repairs');" id="repairs">Construcţii şi reparaţii</a></li>
-					<li><a href="javascript:getAdsByCategory('services');" id="services">Servicii</a></li>
-					<li><a href="javascript:getAdsByCategory('other');" id="other">Altele</a></li>
-					<li><p></p></li>
-					<li><a href="/newad" style="color:red">Postează anunţ</a></li>
-				</ul>
-		    </div>
-
-		    <div id="listing">
-		        <ul id="adsListing">
-		        </ul>
-		    </div>
-		    
-		    <div id="pagination">
-		    	<div id="btnPrev">
-		    		<a href="javascript:prevPage()">Previous</a>
-		    	</div>
-
-		    	<div id="btnNext">
-		    		<a href="javascript:nextPage()">Next</a>
-		    	</div>
-		    </div>
-	    </div>
-
-		<div id="footer">2014 | ver 0.8.0</div>
-	</body>
+    <div id="footer">2014 | ver 0.8.0</div>
+  </body>
 </html>

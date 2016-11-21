@@ -1,33 +1,42 @@
-$(document).ready(function() {
-	getAllAdsLength();
-	calculateAdsCount('apartaments', 'Apartamente');
-	calculateAdsCount('houses', 'Case şi vile');
-	calculateAdsCount('lands', 'Terenuri');
-	calculateAdsCount('comercial', 'Imobil comercial');
-	calculateAdsCount('garages', 'Garajuri');
-	calculateAdsCount('cars', 'Automobile');
-	calculateAdsCount('buses', 'Microbuze');
-	calculateAdsCount('phones', 'Telefoane');
-	calculateAdsCount('notebooks', 'Notebookuri');
-	calculateAdsCount('desktop', 'Compiutere');
-	calculateAdsCount('services', 'Servicii');
-	calculateAdsCount('repairs', 'Construcţii şi reparaţii')
-	calculateAdsCount('other', 'Altele');
-});
+/* globals $, objJson */
 
-function getAllAdsLength() {
-	$("#allAds").html("Pagina principală <sup>" + objJson.length + "</sup>");
+let categories = [
+  { category: 'apartaments', text: 'Apartamente' },
+  { category: 'houses', text: 'Case şi vile' },
+  { category: 'lands', text: 'Terenuri' },
+  { category: 'comercial', text: 'Imobil comercial' },
+  { category: 'garages', text: 'Garajuri' },
+  { category: 'cars', text: 'Automobile' },
+  { category: 'buses', text: 'Microbuze' },
+  { category: 'phones', text: 'Telefoane' },
+  { category: 'notebooks', text: 'Notebookuri' },
+  { category: 'desktop', text: 'Compiutere' },
+  { category: 'services', text: 'Servicii' },
+  { category: 'repairs', text: 'Construcţii şi reparaţii' },
+  { category: 'other', text: 'Altele' }
+]
+
+$(document).ready(() => {
+  getAllAdsLength()
+
+  categories.forEach((elem) => {
+    calculateAdsCount(elem)
+  })
+})
+
+function getAllAdsLength () {
+  $('#allAds').html(`Pagina principală <sup>${objJson.length}</sup>`)
 }
 
-var calculateAdsCount = function(thisCategory, text) {
-	var tempArray = [];
+const calculateAdsCount = function ({ category, text }) {
+  let tempArray = []
 
-	for (var i = 0; i < objJson.length; i++) {
-		if (objJson[i].category == thisCategory) {
-			tempArray.push(objJson[i]);
-		}
-	}
+  objJson.forEach((elem) => {
+    if (elem.category === category) {
+      tempArray.push(objJson[elem])
+    }
+  })
 
-	var id = '#' + thisCategory;
-	$(id).html(text + '<sup>' + tempArray.length + '</sup>');
+  let id = '#' + category
+  $(id).html(text + '<sup>' + tempArray.length + '</sup>')
 }
