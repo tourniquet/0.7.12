@@ -3,25 +3,28 @@
 function getAdsByCategory (id) {
   let adsArray = []
 
-  for (let i = 0; i < objJson.length; i++) {
-    if (objJson[i].category === id) {
-      adsArray.push(objJson[i])
-    }
-  }
+  objJson.forEach((el) => {
+    if (el.category === id) adsArray.push(el)
+  })
 
-  document.getElementById('adsListing').innerHTML = ''
+  let item = document.getElementById('adsListing')
+  item.innerHTML = ''
 
-  for (let j = 0; j < adsArray.length; j++) {
-    if (adsArray[j].adName.length > 77) {
-      adsArray[j].adName = adsArray[j].adName.slice(0, 75)
-    }
+  adsArray.forEach((el) => {
+    if (el.adName.length > 77) el.adName = el.adName.slice(0, 75)
 
-    if (adsArray[j].newFilePath) {
-      // document.getElementById('adsListing').innerHTML += '<li><a href="' + adsArray[j].url + '"><span class="localAdNameThumb">' + adsArray[j].adName + '</span></a><img src="uploads/thumb_' + adsArray[j].newFilePath + '" class="hiddenImage"/><span class="adPrice">' + adsArray[j].price + '</span><span class="adDate">' + adsArray[j].date + '</span></li>'
-      document.getElementById('adsListing').innerHTML += `<li><a href="${adsArray[j].url}"><span class="localAdNameThumb">${adsArray[j].adName}</span></a><img src="uploads/thumb_${adsArray[j].newFilePath}" class="hiddenImage"/><span class="adPrice">${adsArray[j].price}</span><span class="adDate">${adsArray[j].date}</span></li>`
+    if (el.newFilePath) {
+      item.innerHTML += '<li>'
+      item.innerHTML += `<a href="${el.url}"><span class="adNameThumb">${el.adName}</span></a>`
+      item.innerHTML += `<img src="uploads/thumb_${el.newFilePath}" class="hiddenImage"/>`
+      item.innerHTML += `<span class="adPrice">${el.price}</span><span class="adDate">${el.date}</span>`
+      item.innerHTML += '</li>'
     } else {
-      // document.getElementById('adsListing').innerHTML += '<li><a href="' + adsArray[j].url + '"><span class="localAdName">' + adsArray[j].adName + '</span></a><span class="adPrice">' + adsArray[j].price + '</span><span class="adDate">' + adsArray[j].date + '</span></li>'
-      document.getElementById('adsListing').innerHTML += `<li><a href="${adsArray[j].url}"><span class="localAdName">${adsArray[j].adName}</span></a><span class="adPrice">${adsArray[j].price}</span><span class="adDate">${adsArray[j].date}</span></li>`
+      item.innerHTML += '<li>'
+      item.innerHTML += `<a href="${el.url}"><span class="adName">${el.adName}</span></a>`
+      item.innerHTML += `<span class="adPrice">${el.price}</span>`
+      item.innerHTML += `<span class="adDate">${el.date}</span>`
+      item.innerHTML += '</li>'
     }
-  }
+  })
 }

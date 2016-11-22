@@ -1,20 +1,13 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Postează anunţ</title>	
-		<meta charset="utf-8">
+  <head>
+    <title>Postează anunţ</title>
+    <meta charset="utf-8">
 
-		<meta name="description" content="Plasează anunţul pe www.AnuntOrhei.md" />
+    <meta name="description" content="Plasează anunţul pe www.AnuntOrhei.md" />
 
-		<link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
-
-		<script src="libs/jquery-1.11.1.min.js"></script>
-		<!-- http://jqueryvalidation.org -->
-		<script src="libs/jquery.validate.js"></script>
-
-		<!-- rules for validating form -->
-		<script src="js/validateForm.js"></script>
-	</head>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+  </head>
 
 	<body>
 		<div class="header">
@@ -24,15 +17,7 @@
 
 			<!-- google adSesnse -->
 			<div class="googleAd">
-				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-				<!-- Anunt Orhei Header -->
-				<ins class="adsbygoogle"
-				 style="display:inline-block;width:728px;height:90px"
-				 data-ad-client="ca-pub-0029006930915581"
-				 data-ad-slot="6709178944"></ins>
-				<script>
-				(adsbygoogle = window.adsbygoogle || []).push({});
-				</script>
+        // put your Google Analytics code here
 			</div>
 		</div>
 
@@ -40,21 +25,21 @@
 			<div class="addForm">
 				<form id="new-Ad" action="/adposted" method="POST" enctype="multipart/form-data">
 					<p>categorie</p>
-						<select name="category">
-							<option value="apartaments">Apartamente</option>
-							<option value="houses">Case şi vile</option>	
-							<option value="lands">Terenuri</option>						
-							<option value="comercial">Imobil comercial</option>						
-							<option value="garages">Garajuri</option>						
-							<option value="cars">Automobile</option>			
-							<option value="buses">Microbuze</option>
-							<option value="phones">Telefoane</option>
-							<option value="notebooks">Notebookuri</option>
-							<option value="desktop">Compiutere</option>
-							<option value="repairs">Construcţii şi reparaţii</option>
-							<option value="services">Servicii</option>
-							<option value="other">Altele</option>
-						</select>
+					<select name="category">
+						<option value="apartaments">Apartamente</option>
+						<option value="houses">Case şi vile</option>
+						<option value="lands">Terenuri</option>
+						<option value="comercial">Imobil comercial</option>
+						<option value="garages">Garajuri</option>
+						<option value="cars">Automobile</option>
+						<option value="buses">Microbuze</option>
+						<option value="phones">Telefoane</option>
+						<option value="notebooks">Notebookuri</option>
+						<option value="desktop">Compiutere</option>
+						<option value="repairs">Construcţii şi reparaţii</option>
+						<option value="services">Servicii</option>
+						<option value="other">Altele</option>
+					</select>
 					<p>titlu</p>
 					<input type="text" name="adName" style="width:900px" /><br />
 					<p>descriere</p>
@@ -76,5 +61,12 @@
 		</div>
 
 		<div id="footer">2014 | ver 0.8.0</div>
+
+    <script src="libs/jquery-1.11.1.min.js"></script>
+    <!-- http://jqueryvalidation.org -->
+    <script src="libs/jquery.validate.js"></script>
+
+    <!-- rules for validating form -->
+    <script src="js/validateForm.js"></script>
 	</body>
 </html>

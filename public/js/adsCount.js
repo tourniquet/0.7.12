@@ -1,4 +1,4 @@
-/* globals $, objJson */
+/* globals objJson */
 
 let categories = [
   { category: 'apartaments', text: 'Apartamente' },
@@ -16,27 +16,25 @@ let categories = [
   { category: 'other', text: 'Altele' }
 ]
 
-$(document).ready(() => {
-  getAllAdsLength()
-
-  categories.forEach((elem) => {
-    calculateAdsCount(elem)
-  })
-})
-
 function getAllAdsLength () {
-  $('#allAds').html(`Pagina principală <sup>${objJson.length}</sup>`)
+  document.getElementById('allAds').innerHTML = `Pagina principală <sup>${objJson.length}</sup>`
 }
 
 const calculateAdsCount = function ({ category, text }) {
   let tempArray = []
 
   objJson.forEach((elem) => {
-    if (elem.category === category) {
-      tempArray.push(objJson[elem])
-    }
+    if (elem.category === category) tempArray.push(objJson[elem])
   })
 
-  let id = '#' + category
-  $(id).html(text + '<sup>' + tempArray.length + '</sup>')
+  document.getElementById(category).innerHTML = `${text} <sup>${tempArray.length}</sup>`
 }
+
+// on window load, call calculateAdsCount for every single category
+window.addEventListener('load', () => {
+  getAllAdsLength()
+
+  categories.forEach((elem) => {
+    calculateAdsCount(elem)
+  })
+}, false)
