@@ -24,7 +24,7 @@ const calculateAdsCount = function ({ category, text }) {
   let tempArray = []
 
   objJson.forEach((elem) => {
-    if (elem.category === category) tempArray.push(objJson[elem])
+    if (elem.category === category) tempArray.push(elem)
   })
 
   document.getElementById(category).innerHTML = `${text} <sup>${tempArray.length}</sup>`

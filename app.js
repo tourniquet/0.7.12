@@ -1,10 +1,13 @@
 const http = require('http')
 const fs = require('fs')
 const formidable = require('formidable')
-const gm = require('gm')
+const ImageService = require('./public/js/imageProcessing.js')
 const path = require('path')
 const express = require('express')
 const app = express()
+
+const moment = require('moment')
+moment.locale('ro')
 
 // path to views folder
 const htmlPath = path.join(__dirname + '/views/')
@@ -39,18 +42,13 @@ app.post('/adposted', (req, res) => {
     const price = `${rawPrice} ${rawCurrency}`
     const url = new Date().getTime().toString().slice(5)
 
-    // create date, ex.: 30 oct. 2014
-    const monthNames = [ 'ianuarie', 'februarie', 'martie', 'aprilie', 'mai', 'iunie', 'iulie', 'august', 'septembrie', 'octombrie', 'noiembrie', 'decembrie' ]
-    // var date = new Date().getDate() + " " + monthNames[new Date().getMonth()] + " " + new Date().getFullYear()
-    const date = `${new Date().getDate()} ${monthNames[new Date().getMonth()]} ${new Date().getFullYear()}`
+    const date = moment().format('D MMMM YYYY')
 
     // process file path
-    let oldFilePath = files.file.path
-    let index = oldFilePath.lastIndexOf('/') + 1
-    let tempFilePath = oldFilePath.substr(index)
-
+    let index = files.file.path.indexOf('public')
     // if user not uploading any files, newFilePath is equal with empty string
-    var newFilePath = (files.file.size) ? tempFilePath : ''
+    let tempFileName = files.file.size ? files.file.path.substr(index) : ''
+    let newFileName = tempFileName.replace('upload_', '')
 
     var newAd = {
       url: url,
@@ -60,7 +58,7 @@ app.post('/adposted', (req, res) => {
       price: price,
       date: date,
       category: category,
-      newFilePath: newFilePath
+      newFileName: newFileName
     }
 
     fs.readFile('public/links.txt', { encoding: 'utf8' }, (err, data) => {
@@ -74,48 +72,15 @@ app.post('/adposted', (req, res) => {
       })
     })
 
-    // generate thumbnails and resize images
-    var image = path.join('public/uploads/', newFilePath)
-
-    var resizeImage = function (image) {
-      gm(image)
-        .size((err, size) => {
-          if (!err) {
-            if (size.width > size.height && size.width > 1024)
-              gm(image)
-              .resize(1024, null)
-              .write('public/uploads/' + newFilePath, (err) => {
-                if (err) throw err
-              })
-            else if (size.width < size.height && size.height > 800)
-              gm(image)
-              .resize(null, 800)
-              .write('public/uploads' + newFilePath, (err) => {
-                if (err) throw err
-              })
-          }
-        })
-    }
-
-    resizeImage(image)
-
-    var createThumbnail = function (image) {
-      gm(image)
-        .size((err, size) => {
-          if (!err) {
-            if (size.width > size.height)
-              gm(image).thumb(160, 120, 'public/uploads/' + 'thumb_' + newFilePath, 100, (err) => {
-                if (err) throw err
-              })
-            else if (size.width < size.height)
-              gm(image).thumb(120, 160, 'public/uploads/' + 'thumb_' + newFilePath, 100, (err) => {
-                if (err) throw err
-              })
-          }
-        })
-    }
-
-    createThumbnail(image)
+    ImageService
+      .saveImages(tempFileName, newFileName)
+      // .then(thumbnailAll(images, data.id))
+      .then(() => {
+        console.log('Success!')
+      })
+      .catch((err) => {
+        console.log(err)
+      })
 
     res.sendFile(htmlPath + 'adposted.html')
   })

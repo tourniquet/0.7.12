@@ -15,15 +15,15 @@ function getAdsByCategory (id) {
 
     if (el.newFilePath) {
       item.innerHTML += '<li>'
-      item.innerHTML += `<a href="${el.url}"><span class="adNameThumb">${el.adName}</span></a>`
-      item.innerHTML += `<img src="uploads/thumb_${el.newFilePath}" class="hiddenImage"/>`
-      item.innerHTML += `<span class="adPrice">${el.price}</span><span class="adDate">${el.date}</span>`
+      item.innerHTML += `  <a href="${el.url}"><span class="adNameThumb">${el.adName}</span></a>`
+      item.innerHTML += `  <img src="uploads/thumb_${el.newFilePath}" class="hiddenImage"/>`
+      item.innerHTML += `  <span class="adPrice">${el.price}</span><span class="adDate">${el.date}</span>`
       item.innerHTML += '</li>'
     } else {
       item.innerHTML += '<li>'
-      item.innerHTML += `<a href="${el.url}"><span class="adName">${el.adName}</span></a>`
-      item.innerHTML += `<span class="adPrice">${el.price}</span>`
-      item.innerHTML += `<span class="adDate">${el.date}</span>`
+      item.innerHTML += `  <a href="${el.url}"><span class="adName">${el.adName}</span></a>`
+      item.innerHTML += `  <span class="adPrice">${el.price}</span>`
+      item.innerHTML += `  <span class="adDate">${el.date}</span>`
       item.innerHTML += '</li>'
     }
   })
