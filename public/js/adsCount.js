@@ -33,8 +33,5 @@ const calculateAdsCount = function ({ category, text }) {
 // on window load, call calculateAdsCount for every single category
 window.addEventListener('load', () => {
   getAllAdsLength()
-
-  categories.forEach((elem) => {
-    calculateAdsCount(elem)
-  })
+  categories.forEach(elem => calculateAdsCount(elem))
 }, false)
